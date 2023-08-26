@@ -40,6 +40,7 @@ dependencies {
 
     implementation(project(":core:navigation"))
     implementation(project(":core:component"))
+    implementation(project(":core:storage"))
     implementation(project(":features:auth:domain"))
 
     testImplementation("junit:junit:4.13.2")

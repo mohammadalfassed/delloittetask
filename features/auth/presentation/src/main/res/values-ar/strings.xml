@@ -7,4 +7,10 @@
     <string name="please_enter_your_password">الرجاء ادخال الرقم السري</string>
     <string name="don_t_have_an_account">ليس لديك حساب؟</string>
     <string name="create_a_new_account"><u>إنشاء حساب جديد</u></string>
+    <string name="create_account">انشاء حساب</string>
+    <string name="full_name">الاسم الكامل</string>
+    <string name="please_enter_you_full_name">الرجاء ادخال الاسم كاملا</string>
+    <string name="phone_number">رقم الموبايل</string>
+    <string name="please_enter_your_phone_number">الرجاء ادخال رقم الموبايل</string>
+    <string name="date_of_birth">تاريخ الميلاد</string>
 </resources>

@@ -43,31 +43,44 @@ class LoginFragment : Fragment() {
         binding.textViewCreateAccount.setOnClickListener {
             viewModel.navigateToRegister(this)
         }
+
+        binding.toolbar.setNavigationOnClickListener {
+            requireActivity().finish()
+        }
     }
 
     private fun checkValidation(): Boolean {
-        var isChecked: Boolean
         val emailValidationError =
             viewModel.getEmailErrorValidation(binding.editTextEmail.text.toString(), this)
         val passwordValidationError =
             viewModel.getPasswordErrorValidation(binding.editTextPassword.text.toString(), this)
 
-        if (emailValidationError.isEmpty()) {
-            isChecked = true
+        return emailValidation(emailValidationError) && passwordValidation(passwordValidationError)
+    }
+
+    private fun passwordValidation(passwordValidationError: String): Boolean {
+        return if (passwordValidationError.isEmpty()) {
+            binding.textInputLayoutPassword.error = null
+            binding.textInputLayoutPassword.isErrorEnabled = false
+            true
+        } else {
+            binding.textInputLayoutPassword.isErrorEnabled = true
+            binding.textInputLayoutPassword.error = passwordValidationError
+            false
+        }
+    }
+
+    private fun emailValidation(emailValidationError: String): Boolean {
+        return if (emailValidationError.isEmpty()) {
             binding.textInputLayoutEmail.error = null
             binding.textInputLayoutEmail.isErrorEnabled = false
+            true
         } else {
-            isChecked = false
-            binding.textInputLayoutEmail.error = emailValidationError
-        }
 
-        if (passwordValidationError.isEmpty()) {
-            isChecked = true
-        } else {
-            isChecked = false
-            binding.textInputLayoutPassword.error = passwordValidationError
+            binding.textInputLayoutEmail.isErrorEnabled = true
+            binding.textInputLayoutEmail.error = emailValidationError
+            false
         }
-        return isChecked
     }
 
 }

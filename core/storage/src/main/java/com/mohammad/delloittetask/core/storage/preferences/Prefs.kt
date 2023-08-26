@@ -6,7 +6,14 @@ interface Prefs {
 
     var accessToken: String?
 
+    var fullName: String?
+
+    var phoneNumber: String?
+
+    var email: String?
+
+    var dateOfBirth: String?
 
     val isLoggedIn: Boolean
-        get() = accessToken != null
+        get() = !accessToken.isNullOrEmpty()
 }

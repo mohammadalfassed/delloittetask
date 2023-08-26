@@ -3,4 +3,5 @@
     <string name="this_field_is_required">هذه الخانة مطلوبة</string>
     <string name="invalid_email">البريد الإلكتروني غير صحيح</string>
     <string name="password_must_be_length">كلمة المرور يجب أن تحتوي على 4 خانات على الأقل</string>
+    <string name="phone_must_be_length">رقم الموبايل يجب ان يحتوي على 10 ارقام</string>
 </resources>

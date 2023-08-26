@@ -13,7 +13,7 @@ class CheckValidationOfPasswordUseCase @Inject constructor() {
             }
 
             password.length < 4 -> {
-                currentFragment.requireContext().getString(R.string.this_field_is_required)
+                currentFragment.requireContext().getString(R.string.password_must_be_length)
             }
 
             else -> {

@@ -40,12 +40,12 @@ android {
             dimension = "version"
             applicationIdSuffix = ".debug"
             versionNameSuffix = "-debug"
-            buildConfigField("string", "BASE_URL", "\"https://api.test.example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.test.example.com/\"")
         }
 
         create("production") {
             dimension = "version"
-            buildConfigField("string", "BASE_URL", "\"https://api.test.example.com/\"")
+            buildConfigField("String", "BASE_URL", "\"https://api.test.example.com/\"")
         }
     }
 

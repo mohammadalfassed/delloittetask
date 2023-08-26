@@ -31,7 +31,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbar" />
 
     <androidx.appcompat.widget.AppCompatTextView
-        android:id="@+id/text_view_phone_number_label"
+        android:id="@+id/text_view_email_label"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -54,7 +54,7 @@
         app:hintEnabled="false"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/text_view_phone_number_label"
+        app:layout_constraintTop_toBottomOf="@id/text_view_email_label"
         app:passwordToggleEnabled="false"
         app:passwordToggleTint="@color/white">
 
@@ -65,7 +65,7 @@
             android:hint="@string/please_enter_you_email"
             android:imeOptions="actionNext"
             android:inputType="textEmailAddress"
-            android:maxLength="10"
+            android:maxLength="100"
             android:paddingTop="0dp"
             android:paddingBottom="0dp"
             android:textColor="@color/black"

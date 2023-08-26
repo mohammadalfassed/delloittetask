@@ -19,7 +19,7 @@ class CheckValidationOfEmailUseCase @Inject constructor() {
             }
 
             Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
-                currentFragment.requireContext().getString(R.string.password_must_be_length)
+                currentFragment.requireContext().getString(R.string.invalid_email)
             }
 
             else -> {

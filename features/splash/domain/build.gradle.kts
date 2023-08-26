@@ -36,6 +36,7 @@ android {
 
 dependencies {
     implementation(project(":core:navigation"))
+    implementation(project(":core:storage"))
 
 
     testImplementation("junit:junit:4.13.2")

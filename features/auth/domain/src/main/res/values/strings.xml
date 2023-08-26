@@ -3,4 +3,5 @@
     <string name="this_field_is_required">This field is required</string>
     <string name="invalid_email">the email is not correct</string>
     <string name="password_must_be_length">Password must be at least 4 digits</string>
+    <string name="phone_must_be_length">Phone number must be 10 digits</string>
 </resources>
