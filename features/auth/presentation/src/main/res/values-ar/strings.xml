@@ -1,0 +1,10 @@
+<resources>
+
+    <string name="log_in">تسجيل الدخول</string>
+    <string name="email">البريد الالكتروني</string>
+    <string name="please_enter_you_email">الرجاء ادخال البريد الالكتروني</string>
+    <string name="password">الرقم السري</string>
+    <string name="please_enter_your_password">الرجاء ادخال الرقم السري</string>
+    <string name="don_t_have_an_account">ليس لديك حساب؟</string>
+    <string name="create_a_new_account"><u>إنشاء حساب جديد</u></string>
+</resources>

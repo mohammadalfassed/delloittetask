@@ -1,0 +1,74 @@
+dependencies {
+    implementation fileTree(include: ["*.jar"], dir: "libs")
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.vectordrawable:vectordrawable:1.1.0'
+    implementation "androidx.appcompat:appcompat:1.6.1"
+    implementation "androidx.constraintlayout:constraintlayout:2.1.4"
+    implementation "androidx.recyclerview:recyclerview:1.3.1"
+    implementation "androidx.swiperefreshlayout:swiperefreshlayout:1.1.0"
+    implementation "androidx.preference:preference-ktx:1.2.1"
+    implementation "androidx.datastore:datastore-preferences:1.0.0"
+    implementation "androidx.fragment:fragment-ktx:1.6.1"
+
+    // Material design
+    implementation "com.google.android.material:material:1.9.0"
+
+    // For support Kotlin and Kotlin reflection
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:1.8.0"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:1.8.0"
+
+    // Android ViewModel architecture component
+    implementation "androidx.lifecycle:lifecycle-common-java8:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-livedata-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-runtime-ktx:2.6.1"
+    implementation "androidx.lifecycle:lifecycle-extensions:2.2.0"
+
+    // For dependency injection
+    implementation "com.google.dagger:dagger:2.46"
+    implementation 'com.google.dagger:hilt-android:2.46'
+    ksp("com.google.dagger:dagger-compiler:2.46")
+    ksp("com.google.dagger:hilt-compiler:2.46")
+    ksp("androidx.hilt:hilt-compiler:1.0.0")
+    implementation("androidx.hilt:hilt-work:1.0.0")
+
+
+    // Kotlin coroutines for asynchronous programming and more
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:1.7.1"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-play-services:1.7.1"
+
+    // For make an http requests
+    implementation(platform("com.squareup.okhttp3:okhttp-bom:4.9.0"))
+    implementation("com.squareup.okhttp3:okhttp")
+    implementation "com.squareup.retrofit2:retrofit:2.9.0"
+    implementation "com.squareup.retrofit2:converter-moshi:2.9.0"
+    implementation "com.squareup.retrofit2:converter-scalars:2.9.0"
+    implementation "com.squareup.okhttp3:logging-interceptor:4.11.0"
+
+    // Moshi
+    implementation "com.squareup.moshi:moshi:1.14.0"
+    implementation "com.squareup.moshi:moshi-adapters:1.14.0"
+    implementation "com.squareup.moshi:moshi-kotlin:1.14.0"
+    implementation 'com.serjltt.moshi:moshi-lazy-adapters:2.2'
+    ksp("com.squareup.moshi:moshi-kotlin-codegen:1.14.0")
+
+    // Navigation
+    implementation "androidx.navigation:navigation-fragment-ktx:2.3.5"
+    implementation "androidx.navigation:navigation-ui-ktx:2.3.5"
+
+    // For load images
+    implementation 'com.github.bumptech.glide:glide:4.12.0'
+    implementation 'com.github.bumptech.glide:okhttp3-integration:4.11.0@aar'
+    ksp("com.github.bumptech.glide:compiler:4.12.0")
+
+//    // EventBus for send events between components
+//    implementation 'org.greenrobot:eventbus:3.2.0'
+//
+//    implementation 'androidx.work:work-runtime-ktx:2.8.1'
+//
+    // room database
+    implementation("androidx.room:room-runtime:2.5.2")
+    ksp("androidx.room:room-compiler:2.5.2")
+    implementation("androidx.room:room-ktx:2.5.2")
+}

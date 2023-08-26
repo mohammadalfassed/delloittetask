@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="this_field_is_required">هذه الخانة مطلوبة</string>
+    <string name="invalid_email">البريد الإلكتروني غير صحيح</string>
+    <string name="password_must_be_length">كلمة المرور يجب أن تحتوي على 4 خانات على الأقل</string>
+</resources>
