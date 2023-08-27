@@ -1,0 +1,9 @@
+<resources>
+
+    <string name="more">More</string>
+    <string name="full_name_with_dynamic_value">الاسم: %s</string>
+    <string name="email_with_dynamic_value">البريد الالكتروني: %s</string>
+    <string name="phone_with_dynamic_value">رقم الموبايل: %s</string>
+    <string name="date_of_birth_with_dynamic_value">تاريخ الميلاد: %s</string>
+    <string name="logout">تسجيل الخروج</string>
+</resources>

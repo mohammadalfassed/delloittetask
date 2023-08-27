@@ -23,6 +23,8 @@
             <option value="$PROJECT_DIR$/features/auth/presentation" />
             <option value="$PROJECT_DIR$/features/main" />
             <option value="$PROJECT_DIR$/features/main/presentation" />
+            <option value="$PROJECT_DIR$/features/more" />
+            <option value="$PROJECT_DIR$/features/more/presentation" />
             <option value="$PROJECT_DIR$/features/news" />
             <option value="$PROJECT_DIR$/features/news/data" />
             <option value="$PROJECT_DIR$/features/news/domain" />

@@ -1,12 +1,13 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("kotlin-kapt")
     id("com.google.devtools.ksp") version "1.8.0-1.0.8"
 }
 apply(rootDir.path + "/dependencies.gradle")
 
 android {
-    namespace = "com.mohammad.delloittetask.core.component"
+    namespace = "com.mohammad.delloittetask.features.more.presentation"
     compileSdk = 33
 
     defaultConfig {
@@ -49,11 +50,15 @@ android {
     kotlinOptions {
         jvmTarget = JavaVersion.VERSION_17.toString()
     }
+    buildFeatures {
+        viewBinding = true
+        dataBinding = true
+    }
 }
 
 dependencies {
-
     implementation(project(":core:navigation"))
+    implementation(project(":core:component"))
     implementation(project(":core:storage"))
 
     testImplementation("junit:junit:4.13.2")

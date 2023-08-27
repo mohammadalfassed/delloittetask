@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.mohammad.delloittetask.features.auth.presentation.databinding.FragmentLoginBinding
@@ -14,7 +15,6 @@ class LoginFragment : Fragment() {
 
     private lateinit var binding: FragmentLoginBinding
     private val viewModel by viewModels<LoginViewModel>()
-
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,6 +31,7 @@ class LoginFragment : Fragment() {
 
     private fun init() {
         initClicks()
+        initBackPressedListener()
     }
 
     private fun initClicks() {
@@ -47,6 +48,18 @@ class LoginFragment : Fragment() {
         binding.toolbar.setNavigationOnClickListener {
             requireActivity().finish()
         }
+    }
+
+    private fun initBackPressedListener() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            onBackPressedCallback
+        )
     }
 
     private fun checkValidation(): Boolean {

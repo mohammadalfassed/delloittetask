@@ -14,6 +14,10 @@ interface Prefs {
 
     var dateOfBirth: String?
 
+
     val isLoggedIn: Boolean
         get() = !accessToken.isNullOrEmpty()
+
+    fun clearPrefs()
+
 }

@@ -1,5 +1,6 @@
 package com.mohammad.delloittetask.features.main.presentation
 
+import android.content.Context
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
@@ -8,6 +9,7 @@ import androidx.navigation.fragment.FragmentNavigator
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.setupWithNavController
 import com.mohammad.delloittetask.core.component.annotations.ShowBottomBarNavController
+import com.mohammad.delloittetask.core.component.utils.Languages
 import com.mohammad.delloittetask.core.storage.preferences.Prefs
 import com.mohammad.delloittetask.features.main.presentation.databinding.ActivityMainBinding
 import dagger.hilt.android.AndroidEntryPoint
@@ -24,6 +26,10 @@ class MainActivity : AppCompatActivity() {
         (supportFragmentManager.findFragmentById(R.id.fragment_activity_main_navigation) as NavHostFragment)
     }
     private val navController by lazy { navHostFragment.navController }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(Languages.setLocale(newBase))
+    }
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)

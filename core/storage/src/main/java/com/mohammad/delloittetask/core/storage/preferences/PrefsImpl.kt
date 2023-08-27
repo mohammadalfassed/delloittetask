@@ -42,6 +42,14 @@ class PrefsImpl(
             sharedPreferences.edit { putString(PrefKey.DATE_OF_BIRTH.name, value) }
         }
 
+    override fun clearPrefs() {
+        fullName = null
+        phoneNumber = null
+        email = null
+        dateOfBirth = null
+        accessToken = null
+    }
+
     enum class PrefKey {
         ACCESS_TOKEN,
 
