@@ -24,17 +24,31 @@ internal class NewsRepositoryImpl @Inject constructor(
         }.map(newsMapper::map).mapError(networkErrorMapper::map)
             .getOrThrow().results?.toMutableList()
 
-//        if (newsList.isNullOrEmpty()) {
-//            newsList = getNewsListFromRoom()
-//        } else {
-//
-//        }
+        if (newsList.isNullOrEmpty()) {
+            newsList = getNewsListFromRoom()
+        } else {
+            if (getNewsListFromRoom().isNullOrEmpty()) {
+                insertAllNews(newsList)
+            } else {
+                updateAllNews(newsList)
+            }
+        }
+
         return newsList
     }
 
-//    private fun getNewsListFromRoom(): MutableList<NewsListModel>? {
-//        CoroutineScope(Dispatchers.IO).launch {
-//            return newsLocalRepository.getAllNews()?.map { newsMapper.map(it) }?.toMutableList()
-//        }
-//    }
+    private suspend fun getNewsListFromRoom(): MutableList<NewsListModel>? {
+        return newsLocalRepository.getAllNews()?.map { newsMapper.map(it) }?.toMutableList()
+    }
+
+    private suspend fun insertAllNews(newsList: MutableList<NewsListModel>?) {
+        return newsLocalRepository.insertAllNews(newsList?.map { newsMapper.map(it) }
+            ?.toMutableList())
+    }
+
+    private suspend fun updateAllNews(newsList: MutableList<NewsListModel>?) {
+        return newsLocalRepository.updateAllNews(newsList?.map { newsMapper.map(it) }
+            ?.toMutableList())
+    }
 }
+

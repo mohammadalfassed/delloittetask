@@ -45,4 +45,18 @@ class NewsMapper @Inject constructor() {
             url = source?.url,
         )
     }
+
+    fun map(source: NewsListModel?): NewsLocalModel {
+        return NewsLocalModel(
+            id = source?.id,
+            assetId = source?.assetId,
+            source = source?.source,
+            abstract = source?.abstract,
+            publishedDate = source?.publishedDate,
+            section = source?.section,
+            title = source?.title,
+            updatedDate = source?.updatedDate,
+            url = source?.url,
+        )
+    }
 }

@@ -1,6 +1,7 @@
 plugins {
     id("com.android.library")
     id("org.jetbrains.kotlin.android")
+    id("dagger.hilt.android.plugin")
     id("com.google.devtools.ksp") version "1.8.0-1.0.8"
 }
 apply(rootDir.path + "/dependencies.gradle")
