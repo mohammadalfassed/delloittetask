@@ -2,7 +2,7 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/main_navigation"
-    app:startDestination="@id/navigation_fragment_login">
+    app:startDestination="@id/navigation_fragment_news_list">
 
     <fragment
         android:id="@+id/navigation_fragment_login"
@@ -13,5 +13,15 @@
         android:id="@+id/navigation_fragment_register"
         android:name="com.mohammad.delloittetask.features.auth.presentation.register.RegisterFragment"
         android:label="RegisterFragment" />
+
+    <fragment
+        android:id="@+id/navigation_fragment_news_list"
+        android:name="com.mohammad.delloittetask.features.news.presentation.newslist.NewsListFragment"
+        android:label="NewsListFragment" />
+
+    <dialog
+        android:id="@+id/navigation_bottom_sheet_filter"
+        android:name="com.mohammad.delloittetask.features.news.presentation.newslist.FilterBottomSheetFragment"
+        android:label="FilterBottomSheetFragment" />
 
 </navigation>

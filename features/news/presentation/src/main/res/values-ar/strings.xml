@@ -1,0 +1,10 @@
+<resources>
+    <string name="popular_news">أخبار شعبية</string>
+    <string name="filter">فلتر</string>
+    <string name="search">بحث</string>
+    <string name="no_results_found">لم يتم العثور على نتائج</string>
+    <string name="last_day">قبل 1 يوم</string>
+    <string name="last_7_days">قبل 7 ايام</string>
+    <string name="last_30_days">قبل 30 ايام</string>
+
+</resources>

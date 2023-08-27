@@ -33,7 +33,10 @@ class MainActivity : AppCompatActivity() {
 
     override fun onPostCreate(savedInstanceState: Bundle?) {
         super.onPostCreate(savedInstanceState)
+        initDestinationChangedListener()
+    }
 
+    private fun initDestinationChangedListener() {
         binding.bottomNavigationActivityMain.setupWithNavController(navController)
 
         navController.addOnDestinationChangedListener { _, destination, _ ->
@@ -50,9 +53,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun checkIfUserLoggedIn() {
-        if (prefs.isLoggedIn) {
-
-        } else {
+        if (!prefs.isLoggedIn) {
             val navOptions: NavOptions = NavOptions.Builder().setPopUpTo(null, true).build()
             navController.navigate(
                 com.mohammad.delloittetask.core.navigation.R.id.navigation_fragment_login,

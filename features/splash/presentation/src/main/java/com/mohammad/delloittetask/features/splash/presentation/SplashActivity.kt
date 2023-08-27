@@ -1,7 +1,6 @@
 package com.mohammad.delloittetask.features.splash.presentation
 
 import android.os.Bundle
-import android.os.PersistableBundle
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import com.mohammad.delloittetask.features.splash.presentation.databinding.ActivitySplashBinding
@@ -15,8 +14,8 @@ class SplashActivity : AppCompatActivity() {
     private val binding by lazy { ActivitySplashBinding.inflate(layoutInflater) }
     private val viewModel by viewModels<SplashViewModel>()
 
-    override fun onCreate(savedInstanceState: Bundle?, persistentState: PersistableBundle?) {
-        super.onCreate(savedInstanceState, persistentState)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
         setContentView(binding.root)
         init()
     }

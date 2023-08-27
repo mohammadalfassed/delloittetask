@@ -1,4 +1,4 @@
 <resources>
-    <string name="home">الرئيسية</string>
     <string name="more">المزيد</string>
+    <string name="news">الأخبار</string>
 </resources>

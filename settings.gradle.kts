@@ -27,3 +27,6 @@ include(":core:component")
 
 include(":features:auth:presentation")
 include(":features:auth:domain")
+include(":features:news:presentation")
+include(":features:news:domain")
+include(":features:news:data")

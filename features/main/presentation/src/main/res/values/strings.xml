@@ -1,4 +1,4 @@
 <resources>
-    <string name="home">Home</string>
     <string name="more">More</string>
+    <string name="news">News</string>
 </resources>

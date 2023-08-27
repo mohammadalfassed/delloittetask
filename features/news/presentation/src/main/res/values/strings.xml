@@ -1,0 +1,12 @@
+<resources>
+    <string name="popular_news">Popular News</string>
+    <string name="filter">Filter</string>
+    <string name="search">Search</string>
+    <string name="no_results_found">No search result found</string>
+    <string name="last_day">last 1 Day</string>
+    <string name="last_7_days">Last 7 Days</string>
+    <string name="last_30_days">Last 30 Days</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+</resources>

@@ -1,7 +1,7 @@
 package com.mohammad.delloittetask.core.network.di
 
+import com.mohammad.delloittetask.core.network.BuildConfig
 import com.mohammad.delloittetask.core.network.interceptor.AccessTokenInterceptor
-import com.mohammad.delloittetask.network.BuildConfig
 import com.serjltt.moshi.adapters.FallbackOnNull
 import com.serjltt.moshi.adapters.Wrapped
 import com.squareup.moshi.Moshi
@@ -72,10 +72,4 @@ object NetworkModule {
             .add(FallbackOnNull.ADAPTER_FACTORY)
         return builder.build()
     }
-
-//    @Provides
-//    @Singleton
-//    fun provideConverterObjects(moshi: Moshi): ConverterObjects {
-//        return ConverterObjects(moshi)
-//    }
 }

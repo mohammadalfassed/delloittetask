@@ -25,17 +25,36 @@ android {
                 "proguard-rules.pro"
             )
         }
+        debug {
+            isMinifyEnabled = false
+            isJniDebuggable = true
+        }
     }
+
+    flavorDimensions += "version"
+    productFlavors {
+        create("development") {
+            dimension = "version"
+            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
+        }
+
+        create("production") {
+            dimension = "version"
+            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
+        }
+    }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = JavaVersion.VERSION_17.toString()
     }
 
     buildFeatures {
         viewBinding = true
+        dataBinding = true
     }
 }
 
