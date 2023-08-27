@@ -5,6 +5,7 @@ import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.mohammad.delloittetask.features.news.domain.models.NewsListModel
+import com.mohammad.delloittetask.features.news.domain.usecase.NavFromNewsListToNewsDetailsUseCase
 import com.mohammad.delloittetask.features.news.domain.usecase.PopularNewsUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
@@ -17,6 +18,7 @@ import javax.inject.Inject
 @HiltViewModel
 class NewsViewModel @Inject constructor(
     private val popularNewsUseCase: PopularNewsUseCase,
+    private val navFromNewsListToNewsDetailsUseCase: NavFromNewsListToNewsDetailsUseCase,
 ) : ViewModel(), LifecycleObserver {
 
     private val _progressSharedFlow = MutableSharedFlow<Boolean>()
@@ -43,9 +45,10 @@ class NewsViewModel @Inject constructor(
         }
     }
 
-    fun navigateToNewsDetails(currentFragment: Fragment) {
-//        navFromLoginToRegisterUseCase(
-//            currentFragment = currentFragment
-//        )
+    fun navigateToNewsDetails(currentFragment: Fragment, newsListModel: NewsListModel?) {
+        navFromNewsListToNewsDetailsUseCase(
+            currentFragment = currentFragment,
+            newsListModel = newsListModel
+        )
     }
 }

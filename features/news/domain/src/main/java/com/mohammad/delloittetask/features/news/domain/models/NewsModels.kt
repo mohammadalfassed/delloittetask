@@ -1,5 +1,8 @@
 package com.mohammad.delloittetask.features.news.domain.models
 
+import android.os.Parcelable
+import kotlinx.parcelize.Parcelize
+
 data class NewsListWrapper(
     val status: String? = null,
 
@@ -10,6 +13,7 @@ data class NewsListWrapper(
     var results: List<NewsListModel>? = null
 )
 
+@Parcelize
 data class NewsListModel(
     val id: Long? = null,
 
@@ -28,4 +32,4 @@ data class NewsListModel(
     var title: String? = null,
 
     var abstract: String? = null,
-)
+) : Parcelable

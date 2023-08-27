@@ -100,9 +100,7 @@ class NewsListFragment : Fragment() {
 
     private fun initClickItemAdapter(filterListAdapter: NewsListAdapter) {
         filterListAdapter.onNewsItemClick = {
-//           findNavController().navigate(R.id.navigation_news_details_fragment, bundleOf(
-//               NEWS_DETAILS to ""
-//           ))
+            viewModel.navigateToNewsDetails(this, it)
         }
     }
 
@@ -117,7 +115,6 @@ class NewsListFragment : Fragment() {
     }
 
     companion object {
-        private const val NEWS_DETAILS = "news_details"
         private const val FILTER_RESULT = "filter_result"
     }
 }

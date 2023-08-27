@@ -24,4 +24,9 @@
         android:name="com.mohammad.delloittetask.features.news.presentation.newslist.FilterBottomSheetFragment"
         android:label="FilterBottomSheetFragment" />
 
+    <fragment
+        android:id="@+id/navigation_fragment_news_details"
+        android:name="com.mohammad.delloittetask.features.news.presentation.newsdetails.NewsDetailsFragment"
+        android:label="NewsDetailsFragment" />
+
 </navigation>
