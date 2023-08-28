@@ -5,12 +5,7 @@ import java.text.ParseException
 import java.text.SimpleDateFormat
 import java.util.Locale
 
-/**
- * Project: Motory
- * Created: Oct 21, 2021
- *
- * @author Yousef Nasr
- */
+
 object DateConvertor {
 
     fun getTimeAgo(timestamp: String): String {

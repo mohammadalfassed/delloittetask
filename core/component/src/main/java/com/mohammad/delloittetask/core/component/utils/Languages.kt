@@ -6,12 +6,6 @@ import androidx.preference.PreferenceManager
 import com.mohammad.delloittetask.core.storage.preferences.PrefsImpl
 import java.util.Locale
 
-/**
- * Project: Motory
- * Created: Aug 10, 2021
- *
- * @author Yousef Nasr
- */
 object Languages {
 
     fun setLocale(context: Context): Context? {

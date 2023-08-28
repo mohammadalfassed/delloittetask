@@ -17,4 +17,3 @@ data class Fault(
     val faultString: String? = null,
 
     )
-
