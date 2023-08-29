@@ -29,4 +29,9 @@
         android:name="com.mohammad.delloittetask.features.news.presentation.newsdetails.NewsDetailsFragment"
         android:label="NewsDetailsFragment" />
 
+    <fragment
+        android:id="@+id/navigation_fragment_more"
+        android:name="com.mohammad.delloittetask.features.more.presentation.MoreFragment"
+        android:label="MoreFragment" />
+
 </navigation>

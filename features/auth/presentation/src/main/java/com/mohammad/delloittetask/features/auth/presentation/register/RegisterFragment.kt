@@ -62,12 +62,21 @@ class RegisterFragment : Fragment() {
                 this
             )
         val dateOfBirthValidationError =
-            viewModel.getPhoneNumberErrorValidation(
+            viewModel.getDateOfBirthErrorValidation(
                 binding.editTextDateOfBirth.text.toString(),
                 this
             )
+        val fullNameValidationError =
+            viewModel.getFullNameErrorValidation(
+                binding.editTextFullName.text.toString(),
+                this
+            )
 
-        return emailValidation(emailValidationError) && passwordValidation(passwordValidationError)
+        return fullNameValidation(fullNameValidationError)
+                && emailValidation(emailValidationError)
+                && phoneNumberValidation(phoneNumberValidationError)
+                && dateOfBirthValidation(dateOfBirthValidationError)
+                && passwordValidation(passwordValidationError)
     }
 
     private fun passwordValidation(passwordValidationError: String): Boolean {
@@ -95,5 +104,43 @@ class RegisterFragment : Fragment() {
         }
     }
 
+    private fun fullNameValidation(fullNameValidationError: String): Boolean {
+        return if (fullNameValidationError.isEmpty()) {
+            binding.textInputLayoutFullName.error = null
+            binding.textInputLayoutFullName.isErrorEnabled = false
+            true
+        } else {
+
+            binding.textInputLayoutFullName.isErrorEnabled = true
+            binding.textInputLayoutFullName.error = fullNameValidationError
+            false
+        }
+    }
+
+    private fun dateOfBirthValidation(dateOfBirthValidationError: String): Boolean {
+        return if (dateOfBirthValidationError.isEmpty()) {
+            binding.textInputLayoutDateOfBirth.error = null
+            binding.textInputLayoutDateOfBirth.isErrorEnabled = false
+            true
+        } else {
+
+            binding.textInputLayoutDateOfBirth.isErrorEnabled = true
+            binding.textInputLayoutDateOfBirth.error = dateOfBirthValidationError
+            false
+        }
+    }
+
+    private fun phoneNumberValidation(phoneNumberValidationError: String): Boolean {
+        return if (phoneNumberValidationError.isEmpty()) {
+            binding.textInputLayoutPhoneNumber.error = null
+            binding.textInputLayoutPhoneNumber.isErrorEnabled = false
+            true
+        } else {
+
+            binding.textInputLayoutPhoneNumber.isErrorEnabled = true
+            binding.textInputLayoutPhoneNumber.error = phoneNumberValidationError
+            false
+        }
+    }
 
 }

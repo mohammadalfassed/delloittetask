@@ -14,4 +14,5 @@ dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:component"))
     implementation(project(":core:storage"))
+    implementation(project(":core:network"))
 }

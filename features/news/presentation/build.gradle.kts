@@ -13,6 +13,7 @@ android {
 dependencies {
     implementation(project(":core:navigation"))
     implementation(project(":core:component"))
+    implementation(project(":core:network"))
     implementation(project(":core:storage"))
     implementation(project(":features:news:data"))
     implementation(project(":features:news:domain"))

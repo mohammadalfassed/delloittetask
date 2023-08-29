@@ -4,6 +4,7 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.LifecycleObserver
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import com.mohammad.delloittetask.core.network.entity.RequestState
 import com.mohammad.delloittetask.features.news.domain.models.NewsListModel
 import com.mohammad.delloittetask.features.news.domain.usecase.NavFromNewsListToNewsDetailsUseCase
 import com.mohammad.delloittetask.features.news.domain.usecase.PopularNewsUseCase
@@ -33,11 +34,24 @@ class NewsViewModel @Inject constructor(
 
     fun getPopularNews(period: Int) {
         viewModelScope.launch(Dispatchers.IO) {
-            _progressSharedFlow.emit(true)
             try {
-                popularNewsUseCase(period).let {
-                    _successGetNewsSharedFlow.emit(it)
+                popularNewsUseCase(period).collect {
+                    when (it) {
+                        is RequestState.Success -> {
+                            _successGetNewsSharedFlow.emit(it.data)
+                            _progressSharedFlow.emit(false)
+                        }
+
+                        is RequestState.Loading -> {
+                            _progressSharedFlow.emit(true)
+                        }
+
+                        else -> {
+                            _progressSharedFlow.emit(false)
+                        }
+                    }
                 }
+
             } catch (e: Throwable) {
                 _errorSharedFlow.emit(e)
             }

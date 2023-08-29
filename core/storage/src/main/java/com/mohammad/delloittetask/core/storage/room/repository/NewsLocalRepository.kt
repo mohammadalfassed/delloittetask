@@ -1,12 +1,14 @@
 package com.mohammad.delloittetask.core.storage.room.repository
 
 import com.mohammad.delloittetask.core.storage.room.model.NewsLocalModel
+import kotlinx.coroutines.flow.Flow
 
 interface NewsLocalRepository {
 
-    suspend fun getAllNews(): MutableList<NewsLocalModel>?
+    fun getAllNews(): Flow<List<NewsLocalModel>>
 
-    suspend fun insertAllNews(newsListLocal: MutableList<NewsLocalModel>?)
+    fun insertAllNews(newsListLocal: List<NewsLocalModel>?)
 
-    suspend fun updateAllNews(newsListLocal: MutableList<NewsLocalModel>?)
+    fun clearAll()
+
 }

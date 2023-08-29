@@ -18,7 +18,7 @@ class CheckValidationOfEmailUseCase @Inject constructor() {
                 currentFragment.requireContext().getString(R.string.this_field_is_required)
             }
 
-            Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
+            !Patterns.EMAIL_ADDRESS.matcher(email).matches() -> {
                 currentFragment.requireContext().getString(R.string.invalid_email)
             }
 

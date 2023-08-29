@@ -2,19 +2,20 @@ package com.mohammad.delloittetask.core.storage.room.dao
 
 import androidx.room.Dao
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import androidx.room.Update
 import com.mohammad.delloittetask.core.storage.room.model.NewsLocalModel
+import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface NewsDao {
 
     @Query("SELECT * FROM news")
-    suspend fun getAllNews(): MutableList<NewsLocalModel>?
+    fun getAllNews(): Flow<List<NewsLocalModel>>
 
-    @Insert
-    suspend fun insertAllNews(newsListLocal: MutableList<NewsLocalModel>?)
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
+    fun insertAllNews(newsListLocal: List<NewsLocalModel>?)
 
-    @Update
-    suspend fun updateAllNews(newsListLocal: MutableList<NewsLocalModel>?)
+    @Query("DELETE FROM news")
+    fun clearAll()
 }

@@ -7,10 +7,13 @@ import javax.inject.Inject
 class CheckValidationOfPhoneNumberUseCase @Inject constructor() {
 
     operator fun invoke(phoneNumber: String?, currentFragment: Fragment): String {
-        return checkEmailValidation(phoneNumber, currentFragment)
+        return checkPhoneNumberValidation(phoneNumber, currentFragment)
     }
 
-    private fun checkEmailValidation(phoneNumber: String?, currentFragment: Fragment): String {
+    private fun checkPhoneNumberValidation(
+        phoneNumber: String?,
+        currentFragment: Fragment
+    ): String {
         return when {
 
             phoneNumber.isNullOrEmpty() -> {

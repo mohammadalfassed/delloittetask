@@ -6,6 +6,7 @@ import android.os.Looper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.core.view.isVisible
 import androidx.core.widget.doOnTextChanged
 import androidx.fragment.app.Fragment
@@ -14,6 +15,7 @@ import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.mohammad.delloittetask.core.component.annotations.ShowBottomBarNavController
 import com.mohammad.delloittetask.core.navigation.R
 import com.mohammad.delloittetask.features.news.domain.models.NewsListModel
 import com.mohammad.delloittetask.features.news.presentation.databinding.FragmentNewsListBinding
@@ -21,6 +23,7 @@ import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
 @AndroidEntryPoint
+@ShowBottomBarNavController
 class NewsListFragment : Fragment() {
 
     private lateinit var binding: FragmentNewsListBinding
@@ -43,6 +46,19 @@ class NewsListFragment : Fragment() {
         initObservable()
         initShoot()
         initClicks()
+        initBackPressedListener()
+    }
+
+    private fun initBackPressedListener() {
+        val onBackPressedCallback = object : OnBackPressedCallback(true) {
+            override fun handleOnBackPressed() {
+                activity?.finish()
+            }
+        }
+        requireActivity().onBackPressedDispatcher.addCallback(
+            viewLifecycleOwner,
+            onBackPressedCallback
+        )
     }
 
     private fun initSearchListFieldsBottomSheetResult() {
@@ -51,6 +67,7 @@ class NewsListFragment : Fragment() {
         )?.observe(viewLifecycleOwner) { filterResult ->
             if (filterResult != null) {
                 initShoot(period = filterResult)
+                return@observe
             }
         }
     }
@@ -58,6 +75,10 @@ class NewsListFragment : Fragment() {
     private fun initClicks() {
         binding.textviewFilter.setOnClickListener {
             findNavController().navigate(R.id.navigation_bottom_sheet_filter)
+        }
+        binding.imageviewClearSearchText.setOnClickListener {
+            binding.editTextSearchList.setText("")
+            binding.imageviewClearSearchText.isVisible = false
         }
     }
 

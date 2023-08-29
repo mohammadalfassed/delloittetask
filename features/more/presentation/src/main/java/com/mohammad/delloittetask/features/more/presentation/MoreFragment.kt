@@ -7,12 +7,14 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
+import com.mohammad.delloittetask.core.component.annotations.ShowBottomBarNavController
 import com.mohammad.delloittetask.core.storage.preferences.Prefs
 import com.mohammad.delloittetask.features.more.presentation.databinding.FragmentMoreBinding
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
 @AndroidEntryPoint
+@ShowBottomBarNavController
 class MoreFragment : Fragment() {
 
     @Inject
@@ -34,6 +36,15 @@ class MoreFragment : Fragment() {
 
     private fun init() {
         initClicks()
+        initData()
+    }
+
+    private fun initData() {
+        binding.fullName = prefs.fullName
+        binding.email = prefs.email
+        binding.dateOfBirth = prefs.dateOfBirth
+        binding.phoneNumber = prefs.phoneNumber
+        binding.executePendingBindings()
     }
 
     private fun initClicks() {
