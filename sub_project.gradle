@@ -1,0 +1,56 @@
+apply plugin: "kotlin-android"
+apply plugin: "kotlin-parcelize"
+apply plugin: "kotlin-kapt"
+apply plugin: "androidx.navigation.safeargs.kotlin"
+apply plugin: 'dagger.hilt.android.plugin'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion 33
+
+    buildFeatures.dataBinding true
+    buildFeatures.viewBinding true
+
+    defaultConfig {
+        minSdkVersion 26
+        targetSdkVersion 33
+
+        versionCode Integer.parseInt(getProperty("app.versionCode"))
+        versionName getProperty("app.versionName")
+        vectorDrawables.useSupportLibrary = true
+        multiDexEnabled = true
+
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+
+
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_17.toString()
+    }
+    flavorDimensions += "version"
+    productFlavors {
+        create("development") {
+            dimension = "version"
+            buildConfigField("String", "VERSION_NAME", "\"${getProperty("app.versionName")}\"")
+            buildConfigField("int", "VERSION_CODE", "${getProperty("app.versionCode")}")
+            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
+        }
+
+        create("production") {
+            dimension = "version"
+            buildConfigField("String", "VERSION_NAME", "\"${getProperty("app.versionName")}\"")
+            buildConfigField("int", "VERSION_CODE", "${getProperty("app.versionCode")}")
+            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
+        }
+    }
+}
+kapt {
+    javacOptions {
+        option("-Adagger.fastInit=ENABLED")
+        option("-Adagger.hilt.android.internal.disableAndroidSuperclassValidation=true")
+    }
+}

@@ -3,9 +3,11 @@ plugins {
     id("org.jetbrains.kotlin.android")
     id("kotlin-kapt")
     id("dagger.hilt.android.plugin")
+    id("androidx.navigation.safeargs.kotlin")
     id("com.google.devtools.ksp") version "1.8.0-1.0.8"
 }
 apply(rootDir.path + "/dependencies.gradle")
+apply(rootDir.path + "/sub_project.gradle")
 
 
 android {
@@ -14,11 +16,6 @@ android {
 
     defaultConfig {
         applicationId = "com.mohammad.delloittetask"
-        minSdk = 26
-        targetSdk = 33
-        versionCode = 1
-        versionName = "1.0"
-
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
@@ -36,20 +33,8 @@ android {
         }
     }
 
-    flavorDimensions += "version"
-    productFlavors {
-        create("development") {
-            dimension = "version"
-            applicationIdSuffix = ".debug"
-            versionNameSuffix = "-debug"
-            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
-        }
 
-        create("production") {
-            dimension = "version"
-            buildConfigField("String", "BASE_URL", "\"https://api.nytimes.com/svc/\"")
-        }
-    }
+
 
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
@@ -63,7 +48,9 @@ android {
         viewBinding = true
         dataBinding = true
     }
+
 }
+
 
 dependencies {
     implementation(project(":features:splash:presentation"))
